@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aesthetic Shop 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ffb6d9;
+    --pink-soft:#ffd6ec;
+    --lilac:#d4c1ff;
+    --lilac-soft:#ece3ff;
+    --mint:#b8f0e0;
+    --blue:#bfe9ff;
+    --cream:#fff8fc;
+    --ink:#5a4a6a;
+    --ink-soft:#8a7a9a;
+    --accent:#ff7fc0;
+    --shadow:0 8px 24px rgba(186,140,200,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Quicksand',sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, var(--pink-soft) 0%, transparent 42%),
+      radial-gradient(circle at 88% 12%, var(--blue) 0%, transparent 40%),
+      radial-gradient(circle at 78% 88%, var(--lilac-soft) 0%, transparent 45%),
+      radial-gradient(circle at 18% 85%, var(--mint) 0%, transparent 42%),
+      var(--cream);
+    min-height:100vh;
+    line-height:1.55;
+  }
+  h1,h2,h3,.display{font-family:'Baloo 2',cursive;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    text-align:center;
+    padding:48px 20px 24px;
+    position:relative;
+  }
+  header h1{
+    font-size:clamp(2.6rem,7vw,4.5rem);
+    font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--lilac),var(--blue));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    letter-spacing:1px;
+    line-height:1;
+    text-shadow:0 4px 0 rgba(255,255,255,.4);
+  }
+  header p{
+    margin-top:10px;color:var(--ink-soft);font-size:1.05rem;font-weight:600;
+  }
+  .sparkle{font-size:1.4rem;animation:float 3s ease-in-out infinite;display:inline-block;}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(8deg)}}
+
+  /* ---------- INFO COMO COMPRAR ---------- */
+  .howto{
+    max-width:760px;margin:0 auto 30px;padding:22px 26px;
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(6px);
+    border:2px dashed var(--pink);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    font-weight:600;text-align:center;font-size:.98rem;
+  }
+  .howto strong{color:var(--accent);}
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{
+    max-width:1180px;margin:0 auto;padding:0 18px 60px;
+    display:grid;grid-template-columns:1fr 330px;gap:30px;align-items:start;
+  }
+  @media(max-width:900px){.wrap{grid-template-columns:1fr;}}
+
+  .cat-section{margin-bottom:34px;}
+  .cat-section h2{
+    font-size:1.6rem;color:var(--accent);margin-bottom:4px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .cat-section .line{height:3px;width:60px;background:var(--pink);border-radius:3px;margin-bottom:18px;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
+
+  .card{
+    background:#fff;border-radius:22px;padding:16px;
+    box-shadow:var(--shadow);
+    border:2px solid #fff;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-5px);border-color:var(--pink);box-shadow:0 14px 30px rgba(255,127,192,.3);}
+  .card .emoji{font-size:2.4rem;text-align:center;margin:6px 0 10px;}
+  .card h3{font-size:1.05rem;line-height:1.2;margin-bottom:4px;}
+  .card .desc{font-size:.82rem;color:var(--ink-soft);font-weight:500;min-height:32px;}
+  .card .price{font-family:'Baloo 2';font-weight:700;color:var(--accent);font-size:1.25rem;margin:8px 0 12px;}
+  .card button{
+    margin-top:auto;border:none;cursor:pointer;
+    background:linear-gradient(90deg,var(--pink),var(--lilac));
+    color:#fff;font-family:'Baloo 2';font-weight:700;font-size:.95rem;
+    padding:9px;border-radius:14px;transition:filter .15s, transform .1s;
+  }
+  .card button:hover{filter:brightness(1.07);}
+  .card button:active{transform:scale(.96);}
+
+  /* ---------- PERSONALIZADO ---------- */
+  .custom-box{
+    background:linear-gradient(120deg,var(--lilac-soft),var(--pink-soft));
+    border-radius:22px;padding:20px;box-shadow:var(--shadow);margin-bottom:34px;
+  }
+  .custom-box h3{color:var(--accent);font-size:1.3rem;margin-bottom:6px;}
+  .custom-box p{font-size:.9rem;font-weight:600;margin-bottom:12px;}
+  .custom-box .row{display:flex;gap:10px;flex-wrap:wrap;}
+  .custom-box input{
+    flex:1;min-width:180px;border:2px solid #fff;border-radius:14px;padding:10px 14px;
+    font-family:'Quicksand';font-weight:600;color:var(--ink);background:#fff;
+  }
+  .custom-box input:focus{outline:none;border-color:var(--pink);}
+  .custom-box button{
+    border:none;cursor:pointer;background:var(--accent);color:#fff;
+    font-family:'Baloo 2';font-weight:700;padding:10px 18px;border-radius:14px;
+  }
+
+  /* ---------- CESTA ---------- */
+  .cart{
+    position:sticky;top:18px;
+    background:#fff;border-radius:24px;padding:22px;box-shadow:var(--shadow);
+    border:3px solid var(--pink-soft);
+  }
+  .cart h2{font-size:1.4rem;color:var(--accent);margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+  .cart .sub{font-size:.82rem;color:var(--ink-soft);font-weight:600;margin-bottom:14px;}
+  #cartItems{list-style:none;max-height:300px;overflow-y:auto;margin-bottom:12px;}
+  #cartItems li{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:9px 10px;border-radius:14px;background:var(--lilac-soft);margin-bottom:7px;font-weight:600;font-size:.86rem;
+  }
+  #cartItems .qty{display:flex;align-items:center;gap:6px;}
+  #cartItems .qty button{
+    width:24px;height:24px;border:none;border-radius:50%;cursor:pointer;
+    background:var(--pink);color:#fff;font-weight:700;font-size:1rem;line-height:1;
+  }
+  #cartItems .iname{flex:1;}
+  .empty{text-align:center;color:var(--ink-soft);font-weight:600;padding:24px 0;font-size:.9rem;}
+  .total{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:'Baloo 2';font-weight:800;font-size:1.3rem;color:var(--ink);
+    padding-top:12px;border-top:2px dashed var(--pink);margin-bottom:14px;
+  }
+  .total span:last-child{color:var(--accent);}
+
+  /* ---------- FORM PEDIDO ---------- */
+  .order-form input, .order-form textarea{
+    width:100%;border:2px solid var(--lilac-soft);border-radius:14px;padding:10px 13px;
+    font-family:'Quicksand';font-weight:600;color:var(--ink);margin-bottom:9px;background:var(--cream);
+  }
+  .order-form input:focus,.order-form textarea:focus{outline:none;border-color:var(--pink);}
+  .order-form textarea{resize:vertical;min-height:54px;}
+  .order-form label{font-size:.78rem;font-weight:700;color:var(--ink-soft);display:block;margin:2px 0 4px;}
+  .send-btn{
+    width:100%;border:none;cursor:pointer;
+    background:linear-gradient(90deg,var(--accent),var(--lilac));
+    color:#fff;font-family:'Baloo 2';font-weight:800;font-size:1.1rem;
+    padding:13px;border-radius:16px;transition:filter .15s,transform .1s;
+    box-shadow:0 6px 16px rgba(255,127,192,.4);
+  }
+  .send-btn:hover{filter:brightness(1.07);}
+  .send-btn:active{transform:scale(.97);}
+  .send-btn:disabled{opacity:.5;cursor:not-allowed;filter:grayscale(.5);}
+  .copy-btn{
+    width:100%;border:2px solid var(--pink);cursor:pointer;background:#fff;
+    color:var(--accent);font-family:'Baloo 2';font-weight:700;font-size:.92rem;
+    padding:9px;border-radius:14px;margin-top:8px;
+  }
+  .msg{margin-top:12px;text-align:center;font-weight:700;font-size:.9rem;border-radius:12px;padding:10px;display:none;}
+  .msg.ok{display:block;background:var(--mint);color:#1d6b54;}
+  .msg.err{display:block;background:#ffd9d9;color:#b53a3a;}
+
+  footer{text-align:center;padding:30px 20px 50px;color:var(--ink-soft);font-weight:600;font-size:.85rem;}
+  footer .hearts{font-size:1.2rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Aesthetic Shop <span class="sparkle">🌸</span></h1>
+  <p>Cosas hechas a mano · Coses fetes a mà ✨</p>
+</header>
+
+<div class="howto" id="howto"></div>
+
+<div class="wrap">
+  <!-- COLUMNA CATÁLOGO -->
+  <main>
+    <div id="catalog"></div>
+
+    <!-- PERSONALIZADO -->
+    <div class="custom-box">
+      <h3>🎨 Cosas personalizadas · Coses personalitzades</h3>
+      <p>Puedes pedir algo y nosotras lo hacemos · Pots demanar el que vulguis (≈ 1 €)</p>
+      <div class="row">
+        <input type="text" id="customText" placeholder="Ej: un squishy de gato azul 🐱">
+        <button onclick="addCustom()">Añadir · Afegir</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- CESTA -->
+  <aside>
+    <div class="cart">
+      <h2>🛒 Tu cesta · La cistella</h2>
+      <p class="sub">Añade productos y envíanos el pedido 💌</p>
+      <ul id="cartItems"></ul>
+      <div class="total"><span>Total</span><span id="totalPrice">0,00 €</span></div>
+
+      <div class="order-form">
+        <label>Tu nombre · El teu nom</label>
+        <input type="text" id="custName" placeholder="Nombre y apellido">
+        <label>Tu correo · El teu correu</label>
+        <input type="email" id="custEmail" placeholder="tucorreo@gmail.com">
+        <label>¿Qué día te va bien? · Quin dia et va bé?</label>
+        <input type="text" id="custDay" placeholder="Ej: lunes en el recreo">
+        <label>Notas (opcional) · Notes</label>
+        <textarea id="custNotes" placeholder="Lo que quieras decirnos..."></textarea>
+
+        <button class="send-btn" id="sendBtn" onclick="sendOrder()">💌 Enviar pedido</button>
+        <button class="copy-btn" onclick="copyOrder()">📋 Copiar pedido</button>
+        <div class="msg" id="msg"></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="hearts">🌷 💜 🩷 💙 🌼</div>
+  Aesthetic Shop · Paula, Júlia, Valen, Andrea & Ònia<br>
+  Hecho con mucho cariño · Fet amb molt d'amor
+</footer>
+
+<script>
+/* =========================================================
+   ⚙️  CONFIGURACIÓN  —  CAMBIAD SOLO ESTAS DOS LÍNEAS
+   ========================================================= */
+// 1) Id del formulario de Formspree (registrarse gratis en https://formspree.io
+//    con el correo valdellea@gmail.com, crear un form y pegar aquí su código,
+//    ej: "xrgkabcd"). Mientras esté vacío, el botón usará el correo de abajo.
+const FORMSPREE_ID = "xwvjlqlw";   // <-- id de Formspree (valdellea@gmail.com)
+
+// 2) Correo de la tienda (se usa de respaldo si no hay Formspree)
+const TIENDA_EMAIL = "valdellea@gmail.com";
+/* ========================================================= */
+
+/* ----------- DATOS DE PRODUCTOS (de las capturas) ----------- */
+const CATALOG = [
+  { cat:"📒 Papelería · Papereria", items:[
+    { id:"libretas",   name:"Libretas",                 desc:"Libretas decoradas aesthetic", price:0.70, emoji:"📓" },
+    { id:"kitmini",    name:"Kit papelería mini",       desc:"Mini kit de papelería",        price:1.00, emoji:"✏️" },
+    { id:"libro",      name:"Libro para colorear",      desc:"Mini libro para colorear",     price:0.70, emoji:"🖍️" },
+    { id:"organizador",name:"Organizador",              desc:"Organizador decorado",         price:0.70, emoji:"🗂️" },
+    { id:"minicolores",name:"Mini colores",             desc:"Caja de mini colores",         price:0.70, emoji:"🖊️" },
+  ]},
+  { cat:"💌 Sorpresas · Sorpreses", items:[
+    { id:"sobre",      name:"Sobre sorpresa",           desc:"Sobre sorpresa",               price:1.00, emoji:"✉️" },
+    { id:"sobreazul",  name:"Sobre sorpresa superazul", desc:"Edición superazul",            price:0.50, emoji:"💙" },
+    { id:"cajacafe",   name:"Caja sorpresa de café",    desc:"Vasito sorpresa de café",      price:1.20, emoji:"☕" },
+    { id:"cajagrande", name:"Caja sorpresa grande",     desc:"Caja sorpresa grande",         price:2.00, emoji:"🎁" },
+    { id:"cajapeque",  name:"Caja sorpresa pequeña",    desc:"Caja sorpresa pequeña",        price:0.70, emoji:"🎀" },
+    { id:"huevito",    name:"Sr. huevito",              desc:"El simpático Sr. huevito",     price:0.70, emoji:"🥚" },
+  ]},
+  { cat:"🧸 Squishys", items:[
+    { id:"sqcupcake",  name:"Squishy cupcake",          desc:"Squishy con forma de cupcake", price:2.00, emoji:"🧁" },
+    { id:"sqsmint",    name:"Squishy Smint (fresa)",    desc:"Smint de fresa",               price:0.70, emoji:"🍓" },
+    { id:"sqflan",     name:"Squishy flan",             desc:"Squishy de flan",              price:1.20, emoji:"🍮" },
+    { id:"sqmante",    name:"Squishy mantequilla",      desc:"Squishy de mantequilla",       price:1.20, emoji:"🧈" },
+    { id:"sqbanana",   name:"Banana rara squishy",      desc:"La famosa banana rara",        price:0.70, emoji:"🍌" },
+    { id:"sqsorpresa", name:"Squishy sorpresa",         desc:"¡Sorpresa squishy!",           price:0.70, emoji:"❓" },
+  ]},
+  { cat:"🌷 Decoración & detalles · Detalls", items:[
+    { id:"cajaanillos",name:"Caja de anillos",          desc:"Anillos de limpiapipas",       price:1.50, emoji:"💍" },
+    { id:"ramoconejo", name:"Ramo de conejitos",        desc:"Ramo de conejitos",            price:0.30, emoji:"🐰" },
+    { id:"ramoflores", name:"Ramo de flores",           desc:"Ramo de flores de papel",      price:1.00, emoji:"💐" },
+    { id:"cuteanimals",name:"Peluches cute animals",    desc:"Peluches: cerdo, oso o perro", price:1.00, emoji:"🐻" },
+    { id:"avanico",    name:"Abanico",                  desc:"Abanico de papel",             price:0.30, emoji:"🌈" },
+    { id:"muneco",     name:"Muñeco de papel (panda)",  desc:"Muñeco de papel panda",        price:0.15, emoji:"🐼" },
+    { id:"miniatura",  name:"Cosas miniatura",          desc:"Mini cositas (cada una)",      price:0.20, emoji:"🔍" },
+  ]},
+];
+
+/* ----------- TEXTO CÓMO COMPRAR ----------- */
+document.getElementById('howto').innerHTML =
+  '¡Holiiii!! 👋 Somos Paula, Júlia, Valen, Andrea y Ònia. Hemos hecho un montón de cosas a mano. '+
+  '<strong>¿Cómo se compra?</strong> Añade lo que te guste a la cesta, escribe tu nombre y correo, '+
+  'pon qué día te va bien y pulsa <strong>Enviar pedido</strong>. ¡En el cole te lo traemos! 💌';
+
+/* ----------- RENDER CATÁLOGO ----------- */
+const cart = {}; // id -> {name, price, qty}
+
+function renderCatalog(){
+  const c = document.getElementById('catalog');
+  c.innerHTML = CATALOG.map(sec=>`
+    <section class="cat-section">
+      <h2>${sec.cat}</h2><div class="line"></div>
+      <div class="grid">
+        ${sec.items.map(it=>`
+          <div class="card">
+            <div class="emoji">${it.emoji}</div>
+            <h3>${it.name}</h3>
+            <div class="desc">${it.desc}</div>
+            <div class="price">${fmt(it.price)}</div>
+            <button onclick="addToCart('${it.id}','${esc(it.name)}',${it.price})">＋ Añadir</button>
+          </div>`).join('')}
+      </div>
+    </section>`).join('');
+}
+function esc(s){return s.replace(/'/g,"\\'");}
+function fmt(n){return n.toFixed(2).replace('.',',')+' €';}
+
+/* ----------- CESTA ----------- */
+let customCount = 0;
+function addToCart(id,name,price){
+  if(cart[id]) cart[id].qty++;
+  else cart[id] = {name,price,qty:1};
+  renderCart();
+}
+function addCustom(){
+  const inp = document.getElementById('customText');
+  const txt = inp.value.trim();
+  if(!txt){ inp.focus(); return; }
+  customCount++;
+  const id = 'custom'+customCount;
+  cart[id] = {name:'🎨 Personalizado: '+txt, price:1.00, qty:1};
+  inp.value='';
+  renderCart();
+}
+function changeQty(id,d){
+  if(!cart[id]) return;
+  cart[id].qty += d;
+  if(cart[id].qty<=0) delete cart[id];
+  renderCart();
+}
+function renderCart(){
+  const ul = document.getElementById('cartItems');
+  const ids = Object.keys(cart);
+  if(ids.length===0){
+    ul.innerHTML = '<div class="empty">Tu cesta está vacía 🌸<br>La cistella és buida</div>';
+    document.getElementById('totalPrice').textContent = fmt(0);
+    return;
+  }
+  let total = 0;
+  ul.innerHTML = ids.map(id=>{
+    const it = cart[id]; total += it.price*it.qty;
+    return `<li>
+      <span class="iname">${it.name}</span>
+      <span class="qty">
+        <button onclick="changeQty('${id}',-1)">−</button>
+        <b>${it.qty}</b>
+        <button onclick="changeQty('${id}',1)">+</button>
+      </span>
+    </li>`;
+  }).join('');
+  document.getElementById('totalPrice').textContent = fmt(total);
+}
+
+/* ----------- TEXTO DEL PEDIDO ----------- */
+function buildOrderText(){
+  const ids = Object.keys(cart);
+  let total = 0;
+  let lines = ids.map(id=>{
+    const it = cart[id];
+    const sub = it.price*it.qty; total += sub;
+    return `• ${it.qty} x ${it.name} — ${fmt(sub)}`;
+  });
+  return { text: lines.join('\n') + '\n\nTOTAL: ' + fmt(total), total };
+}
+
+/* ----------- ENVIAR (FORMSPREE) ----------- */
+async function sendOrder(){
+  const ids = Object.keys(cart);
+  const msg = document.getElementById('msg');
+  msg.className='msg';
+  if(ids.length===0){ showMsg('err','Tu cesta está vacía 🌸'); return; }
+
+  const name  = document.getElementById('custName').value.trim();
+  const email = document.getElementById('custEmail').value.trim();
+  const day   = document.getElementById('custDay').value.trim();
+  const notes = document.getElementById('custNotes').value.trim();
+  if(!name || !email){ showMsg('err','Pon tu nombre y tu correo 💌'); return; }
+
+  const { text } = buildOrderText();
+  const btn = document.getElementById('sendBtn');
+
+  // Si NO hay Formspree configurado -> abrir cliente de correo (mailto)
+  if(!FORMSPREE_ID){
+    const subject = encodeURIComponent('Pedido Aesthetic Shop - '+name);
+    const body = encodeURIComponent(
+      'Hola! Quiero pedir:\n\n'+text+
+      '\n\nNombre: '+name+'\nCorreo: '+email+
+      '\nDía que me va bien: '+(day||'-')+
+      '\nNotas: '+(notes||'-'));
+    window.location.href = 'mailto:'+TIENDA_EMAIL+'?subject='+subject+'&body='+body;
+    showMsg('ok','Se ha abierto tu correo ✉️ ¡Solo dale a Enviar!');
+    return;
+  }
+
+  // Envío real con Formspree
+  btn.disabled = true; btn.textContent = 'Enviando... ⏳';
+  try{
+    const res = await fetch('https://formspree.io/f/'+FORMSPREE_ID, {
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:(()=>{ const f=new FormData();
+        f.append('Nombre',name);
+        f.append('email',email);
+        f.append('Dia_disponible',day);
+        f.append('Notas',notes);
+        f.append('Pedido',text);
+        f.append('_subject','🛒 Nuevo pedido Aesthetic Shop - '+name);
+        return f; })()
+    });
+    if(res.ok){
+      showMsg('ok','¡Pedido enviado! 🎉 Te contactaremos pronto 💌');
+      for(const k in cart) delete cart[k];
+      renderCart();
+      document.getElementById('custName').value='';
+      document.getElementById('custEmail').value='';
+      document.getElementById('custDay').value='';
+      document.getElementById('custNotes').value='';
+    } else {
+      showMsg('err','No se pudo enviar 😢 Usa "Copiar pedido" y mándalo por correo.');
+    }
+  }catch(e){
+    showMsg('err','Error de conexión 😢 Usa "Copiar pedido".');
+  }finally{
+    btn.disabled=false; btn.textContent='💌 Enviar pedido';
+  }
+}
+
+/* ----------- COPIAR PEDIDO ----------- */
+function copyOrder(){
+  const ids = Object.keys(cart);
+  if(ids.length===0){ showMsg('err','Tu cesta está vacía 🌸'); return; }
+  const name  = document.getElementById('custName').value.trim();
+  const email = document.getElementById('custEmail').value.trim();
+  const day   = document.getElementById('custDay').value.trim();
+  const notes = document.getElementById('custNotes').value.trim();
+  const { text } = buildOrderText();
+  const full = 'PEDIDO AESTHETIC SHOP 🌸\n\n'+text+
+    '\n\nNombre: '+(name||'-')+'\nCorreo: '+(email||'-')+
+    '\nDía: '+(day||'-')+'\nNotas: '+(notes||'-');
+  navigator.clipboard.writeText(full)
+    .then(()=>showMsg('ok','¡Pedido copiado! 📋 Pégalo en un correo a '+TIENDA_EMAIL))
+    .catch(()=>{
+      // fallback
+      const ta=document.createElement('textarea');ta.value=full;document.body.appendChild(ta);
+      ta.select();document.execCommand('copy');ta.remove();
+      showMsg('ok','¡Pedido copiado! 📋');
+    });
+}
+
+function showMsg(type,text){
+  const m=document.getElementById('msg');
+  m.className='msg '+type; m.textContent=text;
+  if(type==='ok') setTimeout(()=>{m.className='msg';},6000);
+}
+
+/* ----------- INIT ----------- */
+renderCatalog();
+renderCart();
+</script>
+</body>
+</html>
